@@ -1,7 +1,7 @@
 "YPImagePickerAlbums" = "Galeri";
 "YPImagePickerCancel" = "Batal";
 "YPImagePickerCover" = "Sampul";
-"YPImagePickerCrop" = "Sesuaikan";
+"YPImagePickerCrop" = "Preview";
 "YPImagePickerDone" = "Selesai";
 "YPImagePickerFilter" = "Filter"; //ignore-same-translation-warning
 "YPImagePickerLibrary" = "Perpustakaan";
