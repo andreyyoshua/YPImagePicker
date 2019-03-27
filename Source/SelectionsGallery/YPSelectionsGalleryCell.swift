@@ -24,6 +24,9 @@ public class YPSelectionsGalleryCell: UICollectionViewCell {
             editSquare
         )
         
+        editSquare.isHidden = true
+        editIcon.isHidden = true
+        
         imageView.fillContainer()
         editIcon.size(32).left(12).bottom(12)
         editSquare.size(16)
