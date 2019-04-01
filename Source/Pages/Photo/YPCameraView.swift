@@ -62,8 +62,9 @@ class YPCameraView: UIView, UIGestureRecognizerDelegate {
         )
         previewViewContainer.fillContainer()
         
-        buttonsContainer.fillHorizontally()
+        buttonsContainer.width(100)
         buttonsContainer.height(100)
+        buttonsContainer.CenterX == previewViewContainer.CenterX
         buttonsContainer.Bottom == previewViewContainer.Bottom - 15
 
 
