@@ -1,10 +1,10 @@
 "YPImagePickerAlbums" = "Galeri";
 "YPImagePickerCancel" = "Batal";
-"YPImagePickerCover" = "Sampul";
+"YPImagePickerCover" = "Pilih Cover";
 "YPImagePickerCrop" = "Preview";
 "YPImagePickerDone" = "Selesai";
 "YPImagePickerFilter" = "Filter"; //ignore-same-translation-warning
-"YPImagePickerLibrary" = "Perpustakaan";
+"YPImagePickerLibrary" = "Galeri";
 "YPImagePickerNext" = "Selanjutnya";
 "YPImagePickerOk" = "Oke";
 "YPImagePickerPermissionDeniedPopupCancel" = "Batal";
@@ -14,7 +14,7 @@
 "YPImagePickerPhoto" = "Foto";
 "YPImagePickerProcessing" = "Memproses..";
 "YPImagePickerSave" = "Simpan";
-"YPImagePickerTrim" = "Potong";
+"YPImagePickerTrim" = "Edit";
 "YPImagePickerVideo" = "Video"; //ignore-same-translation-warning
 "YPImagePickerVideoDurationTitle" = "Durasi video";
 "YPImagePickerVideoTooLong" = "Pilih durasi video kurang dari %@ detik";

@@ -15,6 +15,8 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
     @IBOutlet weak var trimBottomItem: YPMenuItem!
     @IBOutlet weak var coverBottomItem: YPMenuItem!
     
+    @IBOutlet weak var infoLabel: UILabel!
+    
     @IBOutlet weak var videoView: YPVideoView!
     @IBOutlet weak var trimmerView: TrimmerView!
     
@@ -54,8 +56,8 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         
         coverThumbSelectorView.thumbBorderColor = YPConfig.colors.coverSelectorBorderColor
         
-        trimBottomItem.textLabel.text = YPConfig.wordings.trim
-        coverBottomItem.textLabel.text = YPConfig.wordings.cover
+        trimBottomItem.textLabel.text = "Potong Video"
+        coverBottomItem.textLabel.text = "Pilih Cover"
 
         trimBottomItem.button.addTarget(self, action: #selector(selectTrim), for: .touchUpInside)
         coverBottomItem.button.addTarget(self, action: #selector(selectCover), for: .touchUpInside)
@@ -151,7 +153,7 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
     // MARK: - Bottom buttons
 
     @objc public func selectTrim() {
-        title = YPConfig.wordings.trim
+        title = "Potong Video"
         
         trimBottomItem.select()
         coverBottomItem.deselect()
@@ -160,6 +162,8 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         videoView.isHidden = false
         coverImageView.isHidden = true
         coverThumbSelectorView.isHidden = true
+        
+        infoLabel.text = "Tarik bagian ujung untuk memotong video"
     }
     
     @objc public func selectCover() {
@@ -175,6 +179,9 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
         
         stopPlaybackTimeChecker()
         videoView.stop()
+        
+        
+        infoLabel.text = "Geser untuk memilih cover video"
     }
     
     // MARK: - Various Methods

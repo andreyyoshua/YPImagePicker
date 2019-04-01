@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +15,7 @@
                 <outlet property="coverBottomItem" destination="qy9-MY-67C" id="LaY-F2-uVO"/>
                 <outlet property="coverImageView" destination="daH-No-sZc" id="sNy-7V-7gV"/>
                 <outlet property="coverThumbSelectorView" destination="Tqq-Gf-aeR" id="CZG-rg-NWB"/>
+                <outlet property="infoLabel" destination="rW9-sN-MEy" id="cjG-CS-Q6U"/>
                 <outlet property="trimBottomItem" destination="uB8-a7-Vh0" id="7Rn-9o-WWN"/>
                 <outlet property="trimmerView" destination="W4N-1E-jNP" id="a4g-Mg-65j"/>
                 <outlet property="videoView" destination="AFl-Bk-oPH" id="x8U-ib-yqT"/>
@@ -29,14 +28,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qy9-MY-67C" customClass="YPMenuItem" customModule="YPImagePicker" customModuleProvider="target">
-                    <rect key="frame" x="187.5" y="627" width="187.5" height="40"/>
+                    <rect key="frame" x="187.5" y="667" width="187.5" height="0.0"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Ik5-9V-0hz"/>
+                        <constraint firstAttribute="height" id="Ik5-9V-0hz"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uB8-a7-Vh0" customClass="YPMenuItem" customModule="YPImagePicker" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="627" width="187.5" height="40"/>
+                    <rect key="frame" x="0.0" y="667" width="187.5" height="0.0"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFl-Bk-oPH" customClass="YPVideoView" customModule="YPImagePicker" customModuleProvider="target">
@@ -49,17 +48,25 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="375"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMy-Fy-gyR">
-                    <rect key="frame" x="0.0" y="395" width="375" height="232"/>
+                    <rect key="frame" x="0.0" y="395" width="375" height="272"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4N-1E-jNP" customClass="TrimmerView" customModule="PryntTrimmerView">
-                            <rect key="frame" x="30" y="77.5" width="315" height="77"/>
+                            <rect key="frame" x="30" y="90.5" width="315" height="91"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqq-Gf-aeR" customClass="ThumbSelectorView" customModule="PryntTrimmerView">
-                            <rect key="frame" x="30" y="77.5" width="315" height="77"/>
+                            <rect key="frame" x="30" y="90.5" width="315" height="91"/>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rW9-sN-MEy">
+                            <rect key="frame" x="187.5" y="82.5" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.64705882349999999" green="0.65098039220000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="Tqq-Gf-aeR" firstAttribute="top" secondItem="rW9-sN-MEy" secondAttribute="bottom" constant="8" id="8jG-x8-woT"/>
+                        <constraint firstItem="rW9-sN-MEy" firstAttribute="centerX" secondItem="dMy-Fy-gyR" secondAttribute="centerX" id="9Wd-Mn-9FU"/>
                         <constraint firstItem="Tqq-Gf-aeR" firstAttribute="leading" secondItem="W4N-1E-jNP" secondAttribute="leading" id="GFg-oD-rpc"/>
                         <constraint firstItem="W4N-1E-jNP" firstAttribute="leading" secondItem="dMy-Fy-gyR" secondAttribute="leading" constant="30" id="IGg-wF-gcV"/>
                         <constraint firstItem="W4N-1E-jNP" firstAttribute="height" secondItem="dMy-Fy-gyR" secondAttribute="height" multiplier="1:3" id="O8d-8f-QKt"/>

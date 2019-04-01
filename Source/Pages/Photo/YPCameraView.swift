@@ -30,11 +30,11 @@ class YPCameraView: UIView, UIGestureRecognizerDelegate {
                 overlayView,
                 progressBar,
                 timeElapsedLabel,
-                flashButton,
-                flipButton,
                 buttonsContainer.sv(
                     shotButton
-                )
+                ),
+                flashButton,
+                flipButton
             )
         } else {
             // View Hierarchy
@@ -42,11 +42,11 @@ class YPCameraView: UIView, UIGestureRecognizerDelegate {
                 previewViewContainer,
                 progressBar,
                 timeElapsedLabel,
-                flashButton,
-                flipButton,
                 buttonsContainer.sv(
                     shotButton
-                )
+                ),
+                flashButton,
+                flipButton
             )
         }
         
