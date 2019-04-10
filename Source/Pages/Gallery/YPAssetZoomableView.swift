@@ -11,6 +11,7 @@ import UIKit
 import Photos
 
 protocol YPAssetZoomableViewDelegate: class {
+    func ypAssetZoomableViewDidShowVideo(_ isShowVideo: Bool)
     func ypAssetZoomableViewDidLayoutSubviews(_ zoomableView: YPAssetZoomableView)
     func ypAssetZoomableViewScrollViewDidZoom()
     func ypAssetZoomableViewScrollViewDidEndZooming()
@@ -67,6 +68,7 @@ final class YPAssetZoomableView: UIScrollView {
             
             if strongSelf.videoView.isDescendant(of: strongSelf) == false {
                 strongSelf.isVideoMode = true
+                strongSelf.myDelegate?.ypAssetZoomableViewDidShowVideo(strongSelf.isVideoMode)
                 strongSelf.photoImageView.removeFromSuperview()
                 strongSelf.addSubview(strongSelf.videoView)
             }
@@ -104,6 +106,7 @@ final class YPAssetZoomableView: UIScrollView {
             
             if strongSelf.photoImageView.isDescendant(of: strongSelf) == false {
                 strongSelf.isVideoMode = false
+                strongSelf.myDelegate?.ypAssetZoomableViewDidShowVideo(strongSelf.isVideoMode)
                 strongSelf.videoView.removeFromSuperview()
                 strongSelf.videoView.showPlayImage(show: false)
                 strongSelf.videoView.deallocate()

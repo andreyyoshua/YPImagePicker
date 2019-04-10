@@ -150,6 +150,11 @@ extension YPAssetViewContainer: YPAssetZoomableViewDelegate {
             self.grid.alpha = 0
         }
     }
+    
+    public func ypAssetZoomableViewDidShowVideo(_ isShowVideo: Bool) {
+        self.squareCropButton.isEnabled = !isShowVideo
+        self.squareCropButton.isHidden = !isShowVideo
+    }
 }
 
 // MARK: - Gesture recognizer Delegate
