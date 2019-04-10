@@ -225,6 +225,11 @@ final class YPAssetZoomableView: UIScrollView {
 // MARK: UIScrollViewDelegate Protocol
 extension YPAssetZoomableView: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        if isVideoMode {
+            delegate = nil
+        } else {
+            delegate = self
+        }
         return isVideoMode ? videoView : photoImageView
     }
     
