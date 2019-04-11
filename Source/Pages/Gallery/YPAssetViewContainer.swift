@@ -153,7 +153,7 @@ extension YPAssetViewContainer: YPAssetZoomableViewDelegate {
     
     public func ypAssetZoomableViewDidShowVideo(_ isShowVideo: Bool) {
         self.squareCropButton.isEnabled = !isShowVideo
-        self.squareCropButton.isHidden = !isShowVideo
+        self.squareCropButton.isHidden = isShowVideo
     }
 }
 
