@@ -83,6 +83,11 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             }
         }
         
+        // Instagram
+        if YPConfig.screens.contains(.instagram) {
+            instagramVC = YPInstagramVC()
+        }
+        
         // Show screens
         var vcs = [UIViewController]()
         for screen in YPConfig.screens {
