@@ -15,6 +15,7 @@ public class YPInstagramVC: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.title = YPConfig.wordings.instagramOption
         title = YPConfig.wordings.instagramOption
         view.backgroundColor = UIColor.green
         
