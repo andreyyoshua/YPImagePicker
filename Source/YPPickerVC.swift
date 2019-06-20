@@ -33,11 +33,13 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         case library
         case camera
         case video
+        case instagram
     }
     
     private var libraryVC: YPLibraryVC?
     private var cameraVC: YPCameraVC?
     private var videoVC: YPVideoCaptureVC?
+    private var instagramVC: YPInstagramVC?
     
     var mode = Mode.camera
     
@@ -97,6 +99,10 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
                 if let videoVC = videoVC {
                     vcs.append(videoVC)
                 }
+            case .instagram:
+                if let instagramVC = instagramVC {
+                    vcs.append(instagramVC)
+                }
             }
         }
         controllers = vcs
@@ -110,7 +116,10 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
                 mode = .camera
             case .video:
                 mode = .video
+            case .instagram:
+                mode = .instagram
             }
+            
         }
         
         // Select good screen
@@ -183,6 +192,9 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             cameraVC?.stopCamera()
         case .video:
             videoVC?.stopCamera()
+        case .instagram:
+            // Do nothing
+            break
         }
     }
     
@@ -291,6 +303,9 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             navigationItem.titleView = nil
             title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
+        case .instagram:
+            title = "Instagram"
+            
         }
     }
     

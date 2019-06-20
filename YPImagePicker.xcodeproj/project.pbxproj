@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8458057421819B95004F241C /* YPImagePickerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99C6D6991F1FB5C100711DB2 /* YPImagePickerLocalizable.strings */; };
+		98F9BB0F22BB38B00034F5A3 /* YPInstagramVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9BB0E22BB38B00034F5A3 /* YPInstagramVC.swift */; };
 		99019E4C2018CCD6007325C2 /* YPBottomPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99019E4B2018CCD6007325C2 /* YPBottomPagerView.swift */; };
 		99019E4E2018CD31007325C2 /* YPPagerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99019E4D2018CD31007325C2 /* YPPagerMenu.swift */; };
 		99019E512018CDED007325C2 /* YPImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99019E502018CDED007325C2 /* YPImageSize.swift */; };
@@ -102,6 +103,7 @@
 		5F01F9DC20DCC494007432E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/YPImagePickerLocalizable.strings"; sourceTree = "<group>"; };
 		65BBCBAE2101BA4200277809 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/YPImagePickerLocalizable.strings; sourceTree = "<group>"; };
 		7157B4CA206FD7270004EF6C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/YPImagePickerLocalizable.strings"; sourceTree = "<group>"; };
+		98F9BB0E22BB38B00034F5A3 /* YPInstagramVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPInstagramVC.swift; sourceTree = "<group>"; };
 		99019E4B2018CCD6007325C2 /* YPBottomPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPBottomPagerView.swift; sourceTree = "<group>"; };
 		99019E4D2018CD31007325C2 /* YPPagerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPPagerMenu.swift; sourceTree = "<group>"; };
 		99019E502018CDED007325C2 /* YPImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YPImageSize.swift; sourceTree = "<group>"; };
@@ -228,6 +230,14 @@
 				52412A931CA6114A0073C4BE /* YPImagePicker.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		98F9BB0822BB28320034F5A3 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				98F9BB0E22BB38B00034F5A3 /* YPInstagramVC.swift */,
+			);
+			path = Instagram;
 			sourceTree = "<group>";
 		};
 		99019E4A2018CCB8007325C2 /* BottomPager */ = {
@@ -431,6 +441,7 @@
 				99C6D69E1F1FB5C100711DB2 /* Gallery */,
 				99C6D6A61F1FB5C100711DB2 /* Photo */,
 				99C6D6B61F1FB5C100711DB2 /* Video */,
+				98F9BB0822BB28320034F5A3 /* Instagram */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -634,6 +645,7 @@
 				EB473E1F208E1BCC00D16105 /* AVMutableComposition+Extensions.swift in Sources */,
 				99472DED2056E33700419F9E /* YPWordings.swift in Sources */,
 				99A0529F1F20B480005600B3 /* YPAlbumCell.swift in Sources */,
+				98F9BB0F22BB38B00034F5A3 /* YPInstagramVC.swift in Sources */,
 				99C6D6BC1F1FB5C100711DB2 /* YPLibraryView.swift in Sources */,
 				99A3C91220319231008D7E23 /* YPCropVC.swift in Sources */,
 				EB584BFB207B870F00265B38 /* YPSelectionsGalleryVC.swift in Sources */,
