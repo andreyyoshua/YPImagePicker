@@ -17,6 +17,7 @@ public class YPInstagramVC: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Changing color to blue
         view.backgroundColor = UIColor.blue
         
     }
