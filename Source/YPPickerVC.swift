@@ -308,7 +308,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
         case .instagram:
-            title = "Instagram"
+            title = instagramVC?.title
         }
     }
     
