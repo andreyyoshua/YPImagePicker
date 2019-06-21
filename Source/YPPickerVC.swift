@@ -20,6 +20,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     var shouldHideStatusBar = false
     var initialStatusBarHidden = false
     weak var imagePickerDelegate: ImagePickerDelegate?
+    private var customVCDict: [YPPickerScreen: UIViewController]
     
     override public var prefersStatusBarHidden: Bool {
         return (shouldHideStatusBar || initialStatusBarHidden) && YPConfig.hidesStatusBar
@@ -39,11 +40,20 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     private var libraryVC: YPLibraryVC?
     private var cameraVC: YPCameraVC?
     private var videoVC: YPVideoCaptureVC?
-    private var instagramVC: YPInstagramVC?
+    private var instagramVC: UIViewController?
     
     var mode = Mode.camera
     
     var capturedImage: UIImage?
+    
+    init(customVCDict: [YPPickerScreen: UIViewController] = [:]) {
+        self.customVCDict = customVCDict
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +95,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         // Instagram
         if YPConfig.screens.contains(.instagram) {
-            instagramVC = YPInstagramVC()
+            instagramVC = self.customVCDict[.instagram]
         }
         
         // Show screens

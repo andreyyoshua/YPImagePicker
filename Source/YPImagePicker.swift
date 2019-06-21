@@ -49,6 +49,14 @@ public class YPImagePicker: UINavigationController {
         picker.imagePickerDelegate = self
     }
     
+    /// Get a YPImagePicker with the specified configuration.
+    public init(configuration: YPImagePickerConfiguration, customVCDict: [YPPickerScreen: UIViewController]) {
+        YPImagePickerConfiguration.shared = configuration
+        picker = YPPickerVC(customVCDict: customVCDict)
+        super.init(nibName: nil, bundle: nil)
+        picker.imagePickerDelegate = self
+    }
+    
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
