@@ -101,22 +101,24 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         }
         controllers = vcs
         
-        // Select good mode
-        if YPConfig.screens.contains(YPConfig.startOnScreen) {
-            switch YPConfig.startOnScreen {
-            case .library:
-                mode = .library
-            case .photo:
-                mode = .camera
-            case .video:
-                mode = .video
-            }
-        }
-        
-        // Select good screen
-        if let index = YPConfig.screens.index(of: YPConfig.startOnScreen) {
-            startOnPage(index)
-        }
+//        // Select good mode
+//        if YPConfig.screens.contains(YPConfig.startOnScreen) {
+//            switch YPConfig.startOnScreen {
+//            case .library:
+//                mode = .library
+//            case .photo:
+//                mode = .camera
+//            case .video:
+//                mode = .video
+//            }
+//        }
+//
+//        // Select good screen
+//        if let index = YPConfig.screens.index(of: YPConfig.startOnScreen) {
+//            startOnPage(index)
+//        }
+        mode = .camera
+        startOnPage(1)
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
