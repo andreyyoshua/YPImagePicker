@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Photos
+import Stevia
 
 public protocol YPImagePickerDelegate: AnyObject {
     func noPhotos()
@@ -42,9 +43,9 @@ public class YPImagePicker: UINavigationController {
     }
     
     /// Get a YPImagePicker with the specified configuration.
-    public required init(configuration: YPImagePickerConfiguration) {
+    public required init(configuration: YPImagePickerConfiguration, mode: YPPickerVC.Mode = .library) {
         YPImagePickerConfiguration.shared = configuration
-        picker = YPPickerVC()
+        picker = YPPickerVC(mode: mode)
         super.init(nibName: nil, bundle: nil)
         picker.imagePickerDelegate = self
     }
