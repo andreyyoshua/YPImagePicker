@@ -43,12 +43,17 @@ public class YPImagePicker: UINavigationController {
     }
     
     /// Get a YPImagePicker with the specified configuration.
-    public required init(configuration: YPImagePickerConfiguration, mode: YPPickerVC.Mode? = nil) {
+    public required init(configuration: YPImagePickerConfiguration) {
         YPImagePickerConfiguration.shared = configuration
         picker = YPPickerVC()
-        if let mode = mode {
-            picker.setInitialPage(mode: mode)
-        }
+        super.init(nibName: nil, bundle: nil)
+        picker.imagePickerDelegate = self
+    }
+    
+    public init(configuration: YPImagePickerConfiguration, mode: YPPickerVC.Mode) {
+        YPImagePickerConfiguration.shared = configuration
+        picker = YPPickerVC()
+        picker.setInitialPage(mode: mode)
         super.init(nibName: nil, bundle: nil)
         picker.imagePickerDelegate = self
     }
