@@ -29,7 +29,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public var didClose:(() -> Void)?
     public var didSelectItems: (([YPMediaItem]) -> Void)?
     
-    enum Mode {
+    public enum Mode {
         case library
         case camera
         case video
