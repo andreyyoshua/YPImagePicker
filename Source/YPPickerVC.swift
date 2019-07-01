@@ -40,25 +40,20 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     private var videoVC: YPVideoCaptureVC?
     
     var mode = Mode.camera
-    let initialIndex: Int
+    var initialIndex: Int = 0
     
     var capturedImage: UIImage?
     
-    public init(mode: Mode) {
+    public func setInitialPage(mode: YPPickerVC.Mode) {
         self.mode = mode
-        
         switch mode {
         case .library:
             initialIndex = 0
         case .camera:
             initialIndex = 1
-        case.video:
+        case .video:
             initialIndex = 2
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     public override func viewDidLoad() {
