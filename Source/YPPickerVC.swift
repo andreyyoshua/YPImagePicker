@@ -29,7 +29,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public var didClose:(() -> Void)?
     public var didSelectItems: (([YPMediaItem]) -> Void)?
     
-    enum Mode {
+    public enum Mode {
         case library
         case camera
         case video
@@ -40,8 +40,21 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     private var videoVC: YPVideoCaptureVC?
     
     var mode = Mode.camera
+    var initialIndex: Int = 0
     
     var capturedImage: UIImage?
+    
+    public func setInitialPage(mode: YPPickerVC.Mode) {
+        self.mode = mode
+        switch mode {
+        case .library:
+            initialIndex = 0
+        case .camera:
+            initialIndex = 1
+        case .video:
+            initialIndex = 2
+        }
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,22 +114,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         }
         controllers = vcs
         
-        // Select good mode
-        if YPConfig.screens.contains(YPConfig.startOnScreen) {
-            switch YPConfig.startOnScreen {
-            case .library:
-                mode = .library
-            case .photo:
-                mode = .camera
-            case .video:
-                mode = .video
-            }
-        }
-        
-        // Select good screen
-        if let index = YPConfig.screens.index(of: YPConfig.startOnScreen) {
-            startOnPage(index)
-        }
+        startOnPage(initialIndex)
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
