@@ -50,9 +50,10 @@ public class YPImagePicker: UINavigationController {
         picker.imagePickerDelegate = self
     }
     
-    public init(configuration: YPImagePickerConfiguration, mode: YPPickerVC.Mode) {
+    /// Get a YPImagePicker with the specified configuration.
+    public init(configuration: YPImagePickerConfiguration, mode: YPPickerVC.Mode, customVCDict: [YPPickerScreen: UIViewController]) {
         YPImagePickerConfiguration.shared = configuration
-        picker = YPPickerVC()
+        picker = YPPickerVC(customVCDict: customVCDict)
         picker.setInitialPage(mode: mode)
         super.init(nibName: nil, bundle: nil)
         picker.imagePickerDelegate = self

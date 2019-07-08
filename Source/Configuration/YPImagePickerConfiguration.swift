@@ -60,7 +60,7 @@ public struct YPImagePickerConfiguration {
     
     /// Defines which screens are shown at launch, and their order.
     /// Default value is `[.library, .photo]`
-    public var screens: [YPPickerScreen] = [.library, .photo]
+    public var screens: [YPPickerScreen] = [.library, .photo, .instagram]
 
     /// Adds a Crop step in the photo taking process, after filters.  Defaults to .none
     public var showsCrop: YPCropType = .none

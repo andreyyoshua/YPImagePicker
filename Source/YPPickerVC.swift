@@ -20,6 +20,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     var shouldHideStatusBar = false
     var initialStatusBarHidden = false
     weak var imagePickerDelegate: ImagePickerDelegate?
+    private var customVCDict: [YPPickerScreen: UIViewController]
     
     override public var prefersStatusBarHidden: Bool {
         return (shouldHideStatusBar || initialStatusBarHidden) && YPConfig.hidesStatusBar
@@ -33,17 +34,28 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         case library
         case camera
         case video
+        case instagram
     }
     
     private var libraryVC: YPLibraryVC?
     private var cameraVC: YPCameraVC?
     private var videoVC: YPVideoCaptureVC?
+    private var instagramVC: UIViewController?
     
     var mode = Mode.camera
     var initialIndex: Int = 0
     
     var capturedImage: UIImage?
     
+    init(customVCDict: [YPPickerScreen: UIViewController] = [:]) {
+        self.customVCDict = customVCDict
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+  
     public func setInitialPage(mode: YPPickerVC.Mode) {
         self.mode = mode
         switch mode {
@@ -94,6 +106,11 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             }
         }
         
+        // Instagram
+        if YPConfig.screens.contains(.instagram) {
+            instagramVC = self.customVCDict[.instagram]
+        }
+        
         // Show screens
         var vcs = [UIViewController]()
         for screen in YPConfig.screens {
@@ -110,10 +127,33 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
                 if let videoVC = videoVC {
                     vcs.append(videoVC)
                 }
+            case .instagram:
+                if let instagramVC = instagramVC {
+                    vcs.append(instagramVC)
+                }
             }
         }
         controllers = vcs
         
+        // Select good mode
+        if YPConfig.screens.contains(YPConfig.startOnScreen) {
+            switch YPConfig.startOnScreen {
+            case .library:
+                mode = .library
+            case .photo:
+                mode = .camera
+            case .video:
+                mode = .video
+            case .instagram:
+                // Do nothing because instagram mode
+                print("Instagram mode")
+            }
+        }
+        
+//         // Select good screen
+//         if let index = YPConfig.screens.index(of: YPConfig.startOnScreen) {
+//             startOnPage(index)
+//         }
         startOnPage(initialIndex)
         
         YPHelper.changeBackButtonIcon(self)
@@ -181,6 +221,8 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             cameraVC?.stopCamera()
         case .video:
             videoVC?.stopCamera()
+        case .instagram:
+            print("Instagram stop camera")
         }
     }
     
@@ -289,6 +331,8 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             navigationItem.titleView = nil
             title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
+        case .instagram:
+            title = instagramVC?.title
         }
     }
     
