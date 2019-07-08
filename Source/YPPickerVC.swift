@@ -65,6 +65,8 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             initialIndex = 1
         case .video:
             initialIndex = 2
+        case .instagram:
+            initialIndex = 3
         }
     }
     
