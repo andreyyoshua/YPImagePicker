@@ -30,7 +30,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public var didClose:(() -> Void)?
     public var didSelectItems: (([YPMediaItem]) -> Void)?
     
-    enum Mode {
+    public enum Mode {
         case library
         case camera
         case video
@@ -43,6 +43,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     private var instagramVC: UIViewController?
     
     var mode = Mode.camera
+    var initialIndex: Int = 0
     
     var capturedImage: UIImage?
     
@@ -53,6 +54,18 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+  
+    public func setInitialPage(mode: YPPickerVC.Mode) {
+        self.mode = mode
+        switch mode {
+        case .library:
+            initialIndex = 0
+        case .camera:
+            initialIndex = 1
+        case .video:
+            initialIndex = 2
+        }
     }
     
     public override func viewDidLoad() {
@@ -137,10 +150,11 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             }
         }
         
-        // Select good screen
-        if let index = YPConfig.screens.index(of: YPConfig.startOnScreen) {
-            startOnPage(index)
-        }
+//         // Select good screen
+//         if let index = YPConfig.screens.index(of: YPConfig.startOnScreen) {
+//             startOnPage(index)
+//         }
+        startOnPage(initialIndex)
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
